@@ -1,0 +1,92 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# Mock data for demonstration
+guests = []
+customers = []
+employees = []
+delivery_staff = []
+products = []
+categories = []
+shopping_cart = []
+orders = []
+order_status = []
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# Routes for Guest
+@app.route('/guest', methods=['GET', 'POST'])
+def guest():
+    if request.method == 'POST':
+        session_id = request.form['session_id']
+        guests.append({'id': len(guests) + 1, 'session_id': session_id})
+        return redirect(url_for('guest'))
+    return render_template('guest.html', guests=guests)
+
+# Routes for Customer
+@app.route('/customer', methods=['GET', 'POST'])
+def customer():
+    if request.method == 'POST':
+        name = request.form['name']
+        phone = request.form['phone']
+        email = request.form['email']
+        address = request.form['address']
+        customers.append({'id': len(customers) + 1, 'name': name, 'phone': phone, 'email': email, 'address': address})
+        return redirect(url_for('customer'))
+    return render_template('customer.html', customers=customers)
+
+# Routes for Employee (Sale)
+@app.route('/employee', methods=['GET', 'POST'])
+def employee():
+    if request.method == 'POST':
+        name = request.form['name']
+        position = request.form['position']
+        phone = request.form['phone']
+        email = request.form['email']
+        salary = request.form['salary']
+        employees.append({'id': len(employees) + 1, 'name': name, 'position': position, 'phone': phone, 'email': email, 'salary': salary})
+        return redirect(url_for('employee'))
+    return render_template('employee.html', employees=employees)
+
+# Routes for Delivery Staff
+@app.route('/delivery', methods=['GET', 'POST'])
+def delivery():
+    if request.method == 'POST':
+        name = request.form['name']
+        phone = request.form['phone']
+        email = request.form['email']
+        salary = request.form['salary']
+        delivery_staff.append({'id': len(delivery_staff) + 1, 'name': name, 'phone': phone, 'email': email, 'salary': salary})
+        return redirect(url_for('delivery'))
+    return render_template('delivery.html', delivery_staff=delivery_staff)
+
+# Routes for Product
+@app.route('/product', methods=['GET', 'POST'])
+def product():
+    if request.method == 'POST':
+        name = request.form['name']
+        category = request.form['category']
+        description = request.form['description']
+        weight = request.form['weight']
+        price = request.form['price']
+        stock = request.form['stock']
+        products.append({'id': len(products) + 1, 'name': name, 'category': category, 'description': description, 'weight': weight, 'price': price, 'stock': stock})
+        return redirect(url_for('product'))
+    return render_template('product.html', products=products, categories=categories)
+
+# Routes for Category
+@app.route('/category', methods=['GET', 'POST'])
+def category():
+    if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        categories.append({'id': len(categories) + 1, 'name': name, 'description': description})
+        return redirect(url_for('category'))
+    return render_template('category.html', categories=categories)
+
+# Start the server
+if __name__ == '__main__':
+    app.run(debug=True)
