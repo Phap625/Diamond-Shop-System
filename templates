@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Store Management</title>
+</head>
+<body>
+    <h1>Diamond Store Management</h1>
+    <ul>
+        <li><a href="/guest">Guest</a></li>
+        <li><a href="/customer">Customer</a></li>
+        <li><a href="/employee">Employee</a></li>
+        <li><a href="/delivery">Delivery Staff</a></li>
+        <li><a href="/product">Product</a></li>
+        <li><a href="/category">Category</a></li>
+    </ul>
+</body>
+</html>
