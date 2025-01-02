@@ -1,92 +1,105 @@
-CREATE DATABASE DiamondStore;
-USE DiamondStore;
-CREATE TABLE Customers (
+CREATE DATABASE CuaHangKimCuong;
+USE CuaHangKimCuong;
+CREATE TABLE Guest (
+    GuestID INT AUTO_INCREMENT PRIMARY KEY,
+    SessionID VARCHAR(100) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE Customer (
     CustomerID INT AUTO_INCREMENT PRIMARY KEY,
-    FullName VARCHAR(255) NOT NULL,
-    Email VARCHAR(255) UNIQUE,
+    FullName VARCHAR(100) NOT NULL,
+    PhoneNumber VARCHAR(15) NOT NULL,
+    Email VARCHAR(100),
+    Address VARCHAR(200),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    GuestID INT,
+    FOREIGN KEY (GuestID) REFERENCES Guest(GuestID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+CREATE TABLE Sale (
+    EmployeeID INT AUTO_INCREMENT PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    Position VARCHAR(50),
     PhoneNumber VARCHAR(15),
-    Address TEXT,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-CREATE TABLE Diamonds (
-    DiamondID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL,
-    Carat DECIMAL(5, 2) NOT NULL, 
-    Color VARCHAR(10), 
-    Clarity VARCHAR(10), 
-    CutQuality VARCHAR(50), 
-    Price DECIMAL(10, 2) NOT NULL, 
-    Stock INT DEFAULT 0, 
-    Description TEXT,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-CREATE TABLE Earrings (
-    EarringID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL, -- Tên bông tai
-    Style VARCHAR(50),          -- Kiểu dáng (hạt nhỏ, chùm, v.v.)
-    MetalType VARCHAR(50),      -- Loại kim loại
-    DiamondID INT,              -- Liên kết với bảng Diamonds
-    Price DECIMAL(10, 2) NOT NULL,
-    Stock INT DEFAULT 0,
-    Description TEXT,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (DiamondID) REFERENCES Diamonds(DiamondID) ON DELETE SET NULL
-);
-CREATE TABLE Necklaces (
-    NecklaceID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL, -- Tên dây chuyền
-    MetalType VARCHAR(50),      -- Loại kim loại
-    Length DECIMAL(5, 2),       -- Độ dài dây chuyền (cm)
-    DiamondID INT,              -- Liên kết với bảng Diamonds
-    Price DECIMAL(10, 2) NOT NULL,
-    Stock INT DEFAULT 0,
-    Description TEXT,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (DiamondID) REFERENCES Diamonds(DiamondID) ON DELETE SET NULL
-);
-CREATE TABLE Rings (
-    RingID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL, -- Tên nhẫn
-    MetalType VARCHAR(50),      -- Loại kim loại (vàng, bạch kim, bạc, v.v.)
-    Size DECIMAL(4, 1),         -- Kích thước nhẫn (đơn vị: mm)
-    DiamondID INT,              -- Liên kết với bảng Diamonds
-    Price DECIMAL(10, 2) NOT NULL,
-    Stock INT DEFAULT 0,
-    Description TEXT,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (DiamondID) REFERENCES Diamonds(DiamondID) ON DELETE SET NULL
-);
-CREATE TABLE LooseDiamonds (
-    LooseDiamondID INT AUTO_INCREMENT PRIMARY KEY,
-    DiamondID INT NOT NULL,    -- Liên kết với bảng Diamonds
-    Certification VARCHAR(50), -- Chứng nhận (GIA, IGI, v.v.)
-    Description TEXT,
-    FOREIGN KEY (DiamondID) REFERENCES Diamonds(DiamondID) ON DELETE CASCADE
-);
-CREATE TABLE Orders (
-    OrderID INT AUTO_INCREMENT PRIMARY KEY,
-    CustomerID INT NOT NULL,
-    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    TotalAmount DECIMAL(10, 2) NOT NULL,
-    Status VARCHAR(50) DEFAULT 'Pending', -- Trạng thái đơn hàng
-    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID) ON DELETE CASCADE
-);
-CREATE TABLE OrderDetails (
-    OrderDetailID INT AUTO_INCREMENT PRIMARY KEY,
-    OrderID INT NOT NULL,
-    DiamondID INT NOT NULL,
-    Quantity INT NOT NULL,
-    UnitPrice DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE,
-    FOREIGN KEY (DiamondID) REFERENCES Diamonds(DiamondID) ON DELETE CASCADE
-);
-CREATE TABLE Payments (
-    PaymentID INT AUTO_INCREMENT PRIMARY KEY,
-    OrderID INT NOT NULL,
-    PaymentDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    Amount DECIMAL(10, 2) NOT NULL,
-    PaymentMethod VARCHAR(50), -- Phương thức thanh toán
-    Status VARCHAR(50) DEFAULT 'Completed', -- Trạng thái thanh toán
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE
+    Email VARCHAR(100),
+    HireDate DATE,
+    Salary FLOAT
 );
 
+CREATE TABLE DeliveryStaff (
+    StaffID INT AUTO_INCREMENT PRIMARY KEY,
+    FullName VARCHAR(100) NOT NULL,
+    PhoneNumber VARCHAR(15),
+    Email VARCHAR(100),
+    HireDate DATE,
+    Salary FLOAT
+);
+CREATE TABLE Category (
+    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
+    CategoryName VARCHAR(100) NOT NULL,
+    Description TEXT
+);
+CREATE TABLE Product (
+    ProductID INT AUTO_INCREMENT PRIMARY KEY,
+    ProductName VARCHAR(100) NOT NULL,
+    CategoryID INT,
+    Description TEXT,
+    Weight FLOAT, -- Đơn vị carat
+    Price FLOAT NOT NULL,
+    Stock INT NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+CREATE TABLE Item (
+    ItemID INT AUTO_INCREMENT PRIMARY KEY,
+    ProductID INT NOT NULL,
+    Quantity INT NOT NULL,
+    Price FLOAT NOT NULL,
+    TotalPrice FLOAT GENERATED ALWAYS AS (Quantity * Price) STORED,
+    FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+CREATE TABLE ShoppingCart (
+    CartID INT AUTO_INCREMENT PRIMARY KEY,
+    GuestID INT,
+    CustomerID INT,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (GuestID) REFERENCES Guest(GuestID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+CREATE TABLE OrderStatus (
+    StatusID INT AUTO_INCREMENT PRIMARY KEY,
+    StatusName VARCHAR(50) NOT NULL,
+    Description TEXT
+);
+CREATE TABLE `Order` (
+    OrderID INT AUTO_INCREMENT PRIMARY KEY,
+    CustomerID INT,
+    StaffID INT,
+    OrderDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    DeliveryDate DATE,
+    TotalAmount FLOAT,
+    StatusID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    FOREIGN KEY (StaffID) REFERENCES Sale(EmployeeID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE,
+    FOREIGN KEY (StatusID) REFERENCES OrderStatus(StatusID)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+ALTER TABLE ShoppingCart
+ADD OrderID INT,
+ADD FOREIGN KEY (OrderID) REFERENCES `Order`(OrderID)
+    ON DELETE SET NULL
+    ON UPDATE CASCADE;
