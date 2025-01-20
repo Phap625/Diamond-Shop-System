@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'Home',
-    "authentication",
 ]
 
 MIDDLEWARE = [
@@ -83,7 +82,7 @@ WSGI_APPLICATION = 'DiaShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Administrator',
+        'NAME': 'CuaHangKimCuong',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST':'127.0.0.1',
