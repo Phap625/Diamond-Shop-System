@@ -24,7 +24,7 @@ def register_customer(request):
             if result[0] > 0:
                 # Nếu số điện thoại đã tồn tại
                 messages.error(request, "Số điện thoại này đã được sử dụng!")
-                return render(request, 'register.html', {'form': form})
+                return render(request, 'accounts/register.html', {'form': form})
             else:
             # Chèn dữ liệu vào bảng Customer (không mã hóa mật khẩu)
                 with connection.cursor() as cursor:
@@ -37,7 +37,7 @@ def register_customer(request):
     else:
         form = CustomerForm()
 
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'accounts/register.html', {'form': form})
 
 
 def login_customer(request):
@@ -61,4 +61,4 @@ def login_customer(request):
                 messages.error(request, 'Số điện thoại hoặc mật khẩu không chính xác.')
 
     # Chỉ hiển thị form login khi trang được tải hoặc khi có lỗi
-    return render(request, 'login.html')
+    return render(request, 'accounts/login.html')
