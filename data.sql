@@ -7,6 +7,7 @@ CREATE TABLE Guest (
 );
 CREATE TABLE Customer (
     CustomerID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(150) UNIQUE NOT NULL,
     FullName VARCHAR(100) NOT NULL,
     PhoneNumber VARCHAR(15) NOT NULL,
     Email VARCHAR(100),

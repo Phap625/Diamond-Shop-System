@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thông Tin Tài Khoản</title>
+  </head>
+  <body>
+    <header>
+      <h1>Thông Tin Tài Khoản</h1>
+    </header>
+    <main>
+      <section id="thong-tin-khach-hang">
+        <h2>Xin chào, {{ customer.1 }}</h2>
+        <p>Số điện thoại: {{ customer.2 }}</p>
+        <p>Địa chỉ: {{ customer.3 }}</p>
+        <p><a href="{% url 'accounts:logout' %}">Đăng xuất</a></p>
+        <a href="{% url 'Home:home' %}">Quay lại trang chủ</a>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Cửa Hàng Kim Cương</p>
+    </footer>
+  </body>
+</html>
