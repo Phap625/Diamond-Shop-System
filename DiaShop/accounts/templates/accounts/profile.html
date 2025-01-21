@@ -8,14 +8,27 @@
   <body>
     <header>
       <h1>Thông Tin Tài Khoản</h1>
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </header>
     <main>
       <section id="thong-tin-khach-hang">
-        <h2>Xin chào, {{ customer.1 }}</h2>
-        <p>Số điện thoại: {{ customer.2 }}</p>
-        <p>Địa chỉ: {{ customer.3 }}</p>
+        <h2>Xin chào, {{ customer.2 }}</h2>
+        <p>Tên đăng nhập: {{ customer.1 }}</p>
+        <p>Họ và Tên: {{ customer.2 }}</p>
+        <p>Số điện thoại: {{ customer.3 }}</p>
+        <p>Email: {{ customer.4 }}</p>
+        <p>Địa chỉ: {{ customer.5 }}</p>
         <p><a href="{% url 'accounts:logout' %}">Đăng xuất</a></p>
         <a href="{% url 'Home:home' %}">Quay lại trang chủ</a>
+        <form method="get" action="{% url 'accounts:update_info' %}">
+          <button type="submit">Sửa thông tin</button>
+        </form>
       </section>
     </main>
     <footer>

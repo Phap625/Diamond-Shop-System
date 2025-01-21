@@ -11,3 +11,7 @@ adminer:
     root : 123123
     docker-compose down //stop
     docker-compose down -v //delete
+
+
+Use Twilio to verify phone number
+    pip install twilio

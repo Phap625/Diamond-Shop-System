@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sửa Thông Tin Tài Khoản</title>
+  </head>
+  <body>
+    <header>
+      <h1>Sửa Thông Tin Tài Khoản</h1>
+    </header>
+    <main>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Cập nhật</button>
+      </form>
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message|safe }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </main>
+    <footer>
+      <p>&copy; 2024 Cửa Hàng Kim Cương</p>
+    </footer>
+  </body>
+</html>
