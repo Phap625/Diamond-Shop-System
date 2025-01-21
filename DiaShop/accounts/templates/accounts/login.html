@@ -1,36 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng Nhập</title>
-</head>
-<body>
-    <h2>Đăng Nhập</h2>
-
+  </head>
+  <body>
+    <h1>Đăng Nhập</h1>
     {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li style="color: red;">{{ message }}</li>
-            {% endfor %}
-        </ul>
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
     {% endif %}
-
-    <form method="post">
-        {% csrf_token %}
-
-        <div>
-            <label for="id_phone_number">Số điện thoại:</label>
-            <input type="text" id="id_phone_number" name="phone_number" required>
-        </div>
-
-        <div>
-            <label for="id_password">Mật khẩu:</label>
-            <input type="password" id="id_password" name="password" required>
-        </div>
-
-        <button type="submit">Đăng Nhập</button>
+    <form method="post" action="{% url 'accounts:login' %}">
+      {% csrf_token %}
+      {{ form.as_p }} <!-- Hiển thị form -->
+      <button type="submit">Đăng Nhập</button>
     </form>
     <p>Chưa có tài khoản? <a href="{% url 'accounts:register' %}">Đăng ký</a></p>
-</body>
+  </body>
 </html>

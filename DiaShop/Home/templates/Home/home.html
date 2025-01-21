@@ -1,10 +1,10 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản Lý Cửa Hàng Kim Cương</title>
+    {% load static %}
     <link rel="stylesheet" href="{%static 'css/styles.css' %}">
   </head>
   <body>
@@ -25,7 +25,11 @@
         <li><a href="#gio-hang">Giỏ Hàng</a></li>
         <li><a href="#khuyen-mai">Khuyến Mãi</a></li>
         <li>
+          {% if request.session.customer_id %}
+            <a href="{% url 'accounts:profile' %}">Tài khoản</a>
+          {% else %}
             <a href="{% url 'accounts:login' %}">Tài khoản</a>
+          {% endif %}
         </li>
         <li><a href="#lien-he">Liên Hệ</a></li>
         <li><a href="#tim-kiem">Tìm Kiếm</a></li>
