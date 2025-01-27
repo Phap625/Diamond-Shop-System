@@ -39,9 +39,10 @@ class CustomerForm(forms.Form):
 
         return cleaned_data
 
+
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=150, required=True, label="Tên đăng nhập")
-    password = forms.CharField(widget=forms.PasswordInput(), required=True, label="Mật khẩu")
+    username = forms.CharField(max_length=255, label="Tên đăng nhập hoặc Số điện thoại")
+    password = forms.CharField(widget=forms.PasswordInput, label="Mật khẩu")
 
 
 class UpdateCustomerForm(forms.Form):

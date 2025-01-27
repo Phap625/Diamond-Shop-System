@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Guest, Customer
 
-# Register your models here.
+
+admin.site.register(Guest)
+admin.site.register(Customer)

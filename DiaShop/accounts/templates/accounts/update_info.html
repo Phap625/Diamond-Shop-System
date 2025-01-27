@@ -10,18 +10,18 @@
       <h1>Sửa Thông Tin Tài Khoản</h1>
     </header>
     <main>
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message|safe }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
       <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Cập nhật</button>
       </form>
-      {% if messages %}
-        <ul>
-          {% for message in messages %}
-            <li>{{ message|safe }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
     </main>
     <footer>
       <p>&copy; 2024 Cửa Hàng Kim Cương</p>

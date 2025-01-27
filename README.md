@@ -13,5 +13,11 @@ adminer:
     docker-compose down -v //delete
 
 
-Use Twilio to verify phone number
-    pip install twilio
+create container in docker:
+    add folder DataDiamondShop to drive D
+    in command docker use code:
+    docker run --name DiamondShop -e MYSQL_ROOT_PASSWORD=12344321 -e MYSQL_DATABASE=CuaHangKimCuong -p 3307:3306 -v D:/DataDiamondShop:/var/lib/mysql -d mysql:latest
+    setting in file settings.py
+    run: python manage.py makemigrations
+         python manage.py migrate
+

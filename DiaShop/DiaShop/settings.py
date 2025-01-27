@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'DiaShop.urls'
 
 TEMPLATES = [
@@ -84,8 +85,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'CuaHangKimCuong',
         'USER': 'root',
-        'PASSWORD': '123123',
-        'HOST':'127.0.0.1',
+        'PASSWORD': '12344321',
+        'HOST':'localhost',
         'PORT':'3307',
     }
 }

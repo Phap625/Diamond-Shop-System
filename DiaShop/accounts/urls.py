@@ -11,5 +11,6 @@ urlpatterns = [
     path('update-info/', views.update_customer_info, name='update_info'),
     path('reset-password/', views.reset_password, name='reset_password'),
     path('verify-otp/', views.verify_otp, name='verify_otp'),
+    path('update-password/', views.update_password, name='update_password'),
 
 ]
