@@ -95,3 +95,4 @@ document.addEventListener("DOMContentLoaded", () => {
     displayProducts(); // Hiển thị danh sách sản phẩm
     updateCart(); // Cập nhật giỏ hàng ban đầu
 });
+

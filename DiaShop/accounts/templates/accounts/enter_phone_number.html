@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhập Số Điện Thoại</title>
+</head>
+<body>
+  <h1>Nhập Số Điện Thoại</h1>
+
+  {% if messages %}
+    <ul class="error">
+      {% for message in messages %}
+        <li>{{ message|safe }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <label for="phone">Số điện thoại:</label>
+    <input type="text" id="phone" name="phone" required>
+    <button type="submit">Gửi mã OTP</button>
+  </form>
+</body>
+</html>

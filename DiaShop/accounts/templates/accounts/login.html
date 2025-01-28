@@ -8,12 +8,11 @@
   <body>
     <h1>Đăng Nhập</h1>
       {% if messages %}
-        <ul class="error">
           {% for message in messages %}
-            <li>{{ message|safe }}</li>
+              <p>{{ message }}</p>
           {% endfor %}
-        </ul>
-     {% endif %}
+{% endif %}
+
     <form method="post" action="{% url 'accounts:login' %}">
       {% csrf_token %}
       {{ form.as_p }} <!-- Hiển thị form -->
