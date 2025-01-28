@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'DiaShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'CuaHangKimCuong',
+        # 'NAME': 'CuaHangKimCuong',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST':'127.0.0.1',

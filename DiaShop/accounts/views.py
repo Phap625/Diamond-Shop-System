@@ -198,6 +198,6 @@ def verify_otp(request):
     return render(request, 'accounts/verify_otp.html')
 
 
-def reset_password(request):
-    return HttpResponse("hello")
+def ForgotPass(request):
+    return render(request, 'accounts/ForgotPass.html')
 
