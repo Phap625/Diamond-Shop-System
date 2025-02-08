@@ -1,5 +1,17 @@
 CREATE DATABASE CuaHangKimCuong2;
 USE CuaHangKimCuong2;
+CREATE TABLE Diamonds (
+    DiamondID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL, -- Tên sản phẩm
+    Carat FLOAT NOT NULL, -- Trọng lượng (Carat)
+    Price DECIMAL(15,2) NOT NULL, -- Giá bán
+    Stock INT NOT NULL, -- Số lượng tồn kho
+    Certificate VARCHAR(255), -- Giấy chứng nhận (GIA, IGI, HRD...)
+    Description TEXT, -- Mô tả chi tiết
+    ImageURL VARCHAR(500), -- Hình ảnh sản phẩm
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UpdatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 CREATE TABLE Customers (
     CustomerID INT PRIMARY KEY AUTO_INCREMENT,
     FullName VARCHAR(255) NOT NULL,
