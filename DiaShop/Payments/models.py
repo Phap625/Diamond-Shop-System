@@ -1,10 +1,17 @@
-class Transaction(Base):
-    __tablename__ = 'Transactions'
-    
-    TransactionID = Column(Integer, primary_key=True, autoincrement=True)
-    OrderID = Column(Integer, ForeignKey('Orders.OrderID', ondelete='CASCADE'), nullable=False)
-    PaymentMethod = Column(Enum('Cash', 'Credit Card', 'Bank Transfer', name='payment_method'), nullable=False)
-    Amount = Column(DECIMAL(15, 2), nullable=False)
-    TransactionDate = Column(TIMESTAMP, default=datetime.utcnow)
-engine = create_engine('sqlite:///diamonds.db', echo=True)
-Base.metadata.create_all(engine)
+from django.db import models
+
+class Transaction(models.Model):
+    PAYMENT_METHOD_CHOICES = [
+        ('Cash', 'Cash'),
+        ('Credit Card', 'Credit Card'),
+        ('Bank Transfer', 'Bank Transfer'),
+    ]
+
+    TransactionID = models.AutoField(primary_key=True)
+    OrderID = models.ForeignKey('Order', on_delete=models.CASCADE)  # Đảm bảo có model Order
+    PaymentMethod = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES)
+    Amount = models.DecimalField(max_digits=15, decimal_places=2)
+    TransactionDate = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Transaction {self.TransactionID} - {self.PaymentMethod}"
