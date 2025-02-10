@@ -1,6 +1,8 @@
 from django.contrib import admin
-from .models import Guest, Customer
+from .models import Customer
 
-
-admin.site.register(Guest)
-admin.site.register(Customer)
+@admin.register(Customer)
+class CustomerAdmin(admin.ModelAdmin):
+    list_display = ('FullName', 'Email', 'Phone', 'CreatedAt')
+    search_fields = ('FullName', 'Email', 'Phone')
+    list_filter = ('CreatedAt',)
