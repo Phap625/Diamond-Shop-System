@@ -1,0 +1,746 @@
+
+{% extends "master-page.html" %}
+{% load static %}
+{%block navbar%}
+  {% include "includes/navbar-menu.html" %}
+{%endblock%}
+
+{%block left-menu%}
+  {% include "includes/left-menu.html" %}
+{%endblock%}
+
+{%block Slide%}
+  {% include "includes/Slide.html" %}
+{%endblock%}
+
+{%block main-content%}
+<div class="awe-section-1">
+  <div class="container">
+    <div class="row g-0"> <!-- Loại bỏ khoảng cách -->
+      <!-- Hình ảnh thứ nhất -->
+      <div class="col-md-8 col-sm-6">
+        <a href="#" class="ab-image-1">
+          <img src="{% static 'Home/Images/feedback1.png' %}" class="img-fluid mx-auto d-block" alt="Feedback 1">
+        </a>
+      </div>
+      <!-- Hình ảnh thứ hai -->
+      <div class="col-md-4 col-sm-6">
+        <a href="#">    
+          <img src="{% static 'Home/Images/feedback2.png' %}" class="image-custom mx-auto d-block" alt="Feedback 2">
+        </a>
+        <div class="section_about_2_content hidden-sm hidden-xs">
+					<h3>Đeo trang sức là cách thể hiện bạn mà không cần một lời nói nào.</h3>
+					<div class="section_about_2_co">
+						Cuộc sống có bao lâu mà chần chờ, hãy cứ đeo trang sức như chưa từng được đeo nhé.
+					</div>
+				</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="awe-section-2">
+
+  <div class="container">
+    </div>
+  </div>
+</div>
+<!--TRENDING-->
+<main class="d-flex justify-content-center align-items-center vh-50">
+  <div class="container pt-20 pb-0" id="section-2-container" data-pagebuilder="section-container">
+    <hr>
+
+    <div class="row" id="section-2-tab-1-row-1" data-pagebuilder="row">
+      <div class="col-12 default" id="section-2-tab-1-row-1-column-1" data-widget-type="default" data-pagebuilder="column">
+        <!-- Widget (master...) -->
+        <div class="widget" data-pagebuilder="widget" data-widget-index="1">
+          <span class="content-block w-100" style="background-color: transparent;">
+            <span class="d-flex flex-column align-self-center w-100">
+              <h2 class="w-100 d-block text-center h2 mt-3" data-widget-element="widgetHeader" data-pagebuilder="element">
+                WHAT'S TRENDING
+              </h2>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>   
+<!--Group item-->     
+{% comment %} <main class="d-flex justify-content-center align-items-center vh-50">
+  <ul id="section-3-tabs-nav" class="nav" role="tablist">
+    <li class="nav-item">
+      <a href="#section-3-tab-1-pane" id="section-3-tab-1" data-bs-toggle="tab" class="nav-link active" role="tab" aria-controls="section-3-tab-1-pane" aria-selected="true">
+        BRACELETS
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#section-3-tab-2-pane" id="section-3-tab-2" data-bs-toggle="tab" class="nav-link" role="tab" aria-controls="section-3-tab-2-pane" aria-selected="false">
+        RINGS
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#section-3-tab-3-pane" id="section-3-tab-3" data-bs-toggle="tab" class="nav-link" role="tab" aria-controls="section-3-tab-3-pane" aria-selected="false">
+        EARRINGS
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#section-3-tab-4-pane" id="section-3-tab-4" data-bs-toggle="tab" class="nav-link" role="tab" aria-controls="section-3-tab-4-pane" aria-selected="false">
+        PENDANTS
+      </a>
+    </li>
+  </ul>
+</main>
+
+<div class="row d-flex justify-content-center">
+  <div class="col-lg-10">
+    <h6 class="pb-1 mb-6 text-muted"></h6>
+    <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
+      <div class="col">
+        <div class="card w-100 h-100">
+          <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to additional content.
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                <a class="btn btn-outline-primary" href="/detail">Xem</a>
+              </div>
+              <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="{%static 'Home/Images/KcT2.png'%}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to additional content.
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                <a class="btn btn-outline-primary" href="youtube.com">Xem</a>
+              </div>
+              <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="{%static 'Home/Images/KcT3.png'%}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to additional content.
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                <a class="btn btn-outline-primary" href="youtube.com">Xem</a>
+              </div>
+              <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="{%static 'Home/Images/KcT4.png'%}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to additional content.
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                <a class="btn btn-outline-primary" href="youtube.com">Xem</a>
+              </div>
+              <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="{%static 'Home/Images/KcT5.png'%}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to additional content.
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                <a class="btn btn-outline-primary" href="youtube.com">Xem</a>
+              </div>
+              <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100">
+          <img class="card-img-top" src="{%static 'Home/Images/KcT6.png'%}" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a longer card with supporting text below as a natural lead-in to additional content.
+            </p>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                <a class="btn btn-outline-primary" href="youtube.com">Xem</a>
+              </div>
+              <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+<main class="vh-50 d-flex flex-column align-items-center">
+  <!-- Tab Navigation -->
+  <ul id="section-3-tabs-nav" class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a href="#bracelets" id="section-3-tab-1" data-bs-toggle="tab" class="nav-link active" role="tab" aria-controls="bracelets" aria-selected="true">BRACELETS</a>
+    </li>
+    <li class="nav-item">
+      <a href="#rings" id="section-3-tab-2" data-bs-toggle="tab" class="nav-link" role="tab" aria-controls="rings" aria-selected="false">RINGS</a>
+    </li>
+    <li class="nav-item">
+      <a href="#earrings" id="section-3-tab-3" data-bs-toggle="tab" class="nav-link" role="tab" aria-controls="earrings" aria-selected="false">EARRINGS</a>
+    </li>
+    <li class="nav-item">
+      <a href="#pendants" id="section-3-tab-4" data-bs-toggle="tab" class="nav-link" role="tab" aria-controls="pendants" aria-selected="false">PENDANTS</a>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content container mt-4">
+    <!-- BRACELETS Content -->
+    <div class="tab-pane fade show active" id="bracelets" role="tabpanel" aria-labelledby="section-3-tab-1">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-10">
+          <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
+            <!-- Card Content -->
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- More Cards -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RINGS Content -->
+    <div class="tab-pane fade" id="rings" role="tabpanel" aria-labelledby="section-3-tab-2">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-10">
+          <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
+            <!-- Card Content -->
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- More Cards -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EARRINGS Content -->
+    <div class="tab-pane fade" id="earrings" role="tabpanel" aria-labelledby="section-3-tab-3">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-10">
+          <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
+            <!-- Card Content -->
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- More Cards -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PENDANTS Content -->
+    <div class="tab-pane fade" id="pendants" role="tabpanel" aria-labelledby="section-3-tab-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-10">
+          <div class="row row-cols-1 row-cols-md-3 g-6 mb-12">
+            <!-- Card Content -->
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card w-100 h-100">
+                <img class="card-img-top" src="{%static 'Home/Images/KcT1.png'%}" alt="Card image cap" />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a longer card with supporting text below as a natural lead-in to additional content.
+                  </p>
+                  <hr>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                      <button type="button" class="btn btn-outline-secondary">Thêm vào giỏ hàng</button>
+                      <a class="btn btn-outline-primary" href="/detail">Xem</a>
+                    </div>
+                    <h5 class="mb-0"><strong>200.000 VND</strong></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- More Cards -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{%endblock%}
+
+{%block footer%}
+  {% include "includes/footer.html" %}
+{%endblock%}

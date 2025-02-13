@@ -36,6 +36,18 @@
 .content-wrapper .navbar {
   z-index: auto;
 }
+/* Xóa padding mặc định của container-fluid */
+.navbar .container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.navbar {
+  width: 100vw; /* Chiều rộng toàn màn hình */
+  margin: 0; /* Xóa khoảng cách bên trái và phải */
+  padding: 0; /* Xóa khoảng padding mặc định */
+  left: 0; /* Đảm bảo sát với lề trái */
+  position: relative; /* Vị trí tương đối để áp dụng các căn chỉnh */
+}
 
 /*
 * Content
@@ -120,4 +132,15 @@
 .layout-demo-info {
   text-align: center;
   margin-top: 1rem;
+}
+/* ************************************************************* */
+.card-actions {
+  display: flex;
+  justify-content: flex-end; /* Đẩy nội dung sang bên phải */
+  align-items: center; /* Căn giữa theo trục dọc */
+  gap: 10px; /* Tạo khoảng cách giữa các nút và giá tiền */
+}
+
+.price {
+  margin: 0;
 }
