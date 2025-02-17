@@ -48,3 +48,5 @@ def search_view(request):
     context = {'categories':categories, 'searched':searched, 'keys':keys,'products':products, 'cart_items':cart_items, 'user_not_login':user_not_login, 'user_login':user_login}
     return render(request, "Home/search.html",context)
 
+def contact_view(request):
+    return render(request, 'Home/contact.html')

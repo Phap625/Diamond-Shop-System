@@ -1,0 +1,21 @@
+{% extends "DashBoard/dashBoard.html" %}
+{% load custom_filters %}
+{% load static %}
+{% block contact %}
+
+<div class="container my-5">
+    <h2 class="text-center">Liên Hệ Chúng Tôi</h2>
+    <p class="text-center text-muted">Thông tin liên hệ của cửa hàng.</p>
+
+    <div class="col-md-6 mx-auto p-4 border rounded shadow bg-light">
+        <h5>📍 Địa chỉ:</h5>
+        <p>123 Đường ABC, Quận Bình Thạnh, TP.HCM</p>
+
+        <h5>📞 Số điện thoại:</h5>
+        <p>(+84)987654321</p>
+
+        <h5>📧 Email:</h5>
+        <p>support@diamondshop.com</p>
+    </div>
+</div>
+{% endblock %}

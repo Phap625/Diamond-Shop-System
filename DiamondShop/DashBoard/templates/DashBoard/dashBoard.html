@@ -51,7 +51,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Liên Hệ</a>
+              <a class="nav-link" href="{% url 'contact' %}">Liên Hệ</a>
             </li>
           </ul>
           <form class="d-flex" role="search" method="POST" action="{% url 'search' %}">
@@ -88,7 +88,7 @@
     {% block cart_content %}
     {% endblock %}
 
-    {% block content_checkout %}
+    {% block checkout %}
     {% endblock %}
 
     {% block search %}
@@ -102,6 +102,10 @@
 
     {% block collection %}
     {% endblock %}
+
+    {% block contact %}
+    {% endblock %}
+
         <br><br><br>
         <footer class="container --fluid bg-success text-center fixed-bottom p-2 mt-5">
             copyright 2025
