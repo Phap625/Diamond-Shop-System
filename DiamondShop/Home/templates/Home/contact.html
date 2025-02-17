@@ -1,21 +1,56 @@
-{% extends "DashBoard/dashBoard.html" %}
-{% load custom_filters %}
-{% load static %}
-{% block contact %}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Diamond Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
 
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">💎 Diamond Shop</a>
+    </div>
+</nav>
+
+<!-- Giới thiệu về cửa hàng -->
+<div class="container my-5">
+    <h2 class="text-center">Về Chúng Tôi</h2>
+    <p class="text-center text-muted">
+        💎 <b>Diamond Shop</b> là thương hiệu uy tín chuyên cung cấp trang sức kim cương thiên nhiên chất lượng cao với giá hợp lý tại Việt Nam.
+        Được thành lập từ năm 2020, chúng tôi cam kết mang đến những thiết kế sang trọng, tinh xảo và giá trị bền vững.
+    </p>
+    <p class="text-center text-muted">
+        🚀 <b>Chuyển đổi số - Nâng tầm trải nghiệm mua sắm</b><br>
+        Với nền tảng website **diamondshop.com**, chúng tôi mang đến giao diện hiện đại, giúp khách hàng dễ dàng mua sắm trang sức trực tuyến.
+        Hình ảnh sắc nét, nội dung chuyên nghiệp, đem lại trải nghiệm tốt nhất!
+    </p>
+</div>
+
+<!-- Nội dung trang liên hệ -->
 <div class="container my-5">
     <h2 class="text-center">Liên Hệ Chúng Tôi</h2>
     <p class="text-center text-muted">Thông tin liên hệ của cửa hàng.</p>
 
     <div class="col-md-6 mx-auto p-4 border rounded shadow bg-light">
         <h5>📍 Địa chỉ:</h5>
-        <p>123 Đường ABC, Quận Bình Thạnh, TP.HCM</p>
+        <p>123 Đường ABC, Quận 1, TP.HCM</p>
 
         <h5>📞 Số điện thoại:</h5>
-        <p>(+84)987654321</p>
+        <p>0901 234 567</p>
 
         <h5>📧 Email:</h5>
         <p>support@diamondshop.com</p>
     </div>
 </div>
-{% endblock %}
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3">
+    &copy; 2025 Diamond Shop
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
