@@ -24,7 +24,15 @@ def category_view(request):
         products = Product.objects.filter(category__slug = active_category)
     else:
         products = []
-    context = {'collections':collections,'cart_items':cart_items,'categories':categories, 'products':products ,'active_category':active_category, 'user_not_login':user_not_login, 'user_login':user_login}
+    context = {
+        'collections':collections,
+        'cart_items':cart_items,
+        'categories':categories,
+        'products':products ,
+        'active_category':active_category,
+        'user_not_login':user_not_login,
+        'user_login':user_login
+    }
     return render(request, 'Products/category.html', context)
 
 def detail_view(request):
@@ -45,7 +53,14 @@ def detail_view(request):
     id = request.GET.get('id','')
     products = Product.objects.filter(id=id)
     categories = Category.objects.all()
-    context = {'collections':collections, 'cart_items': cart_items, 'categories': categories, 'products': products, 'user_not_login': user_not_login, 'user_login': user_login}
+    context = {
+        'collections':collections,
+        'cart_items': cart_items,
+        'categories': categories,
+        'products': products,
+        'user_not_login': user_not_login,
+        'user_login': user_login
+    }
     return render(request, "Products/detail.html", context)
 
 def collection_view(request):
@@ -67,5 +82,13 @@ def collection_view(request):
     products = Product.objects.filter(collection=active_collection) if active_collection else []
 
     categories = Category.objects.all()
-    context = {'collections': collections,'active_collection': active_collection,'cart_items': cart_items, 'categories': categories, 'products': products, 'user_not_login': user_not_login, 'user_login': user_login}
+    context = {
+        'collections': collections,
+        'active_collection': active_collection,
+        'cart_items': cart_items,
+        'categories': categories,
+        'products': products,
+        'user_not_login': user_not_login,
+        'user_login': user_login
+    }
     return render(request, "Products/collection.html", context)

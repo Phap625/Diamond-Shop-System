@@ -21,7 +21,15 @@ def cart_view(request):
     collections = Product.objects.exclude(collection__isnull=True).exclude(collection="").values_list('collection',
                                                                                                       flat=True).distinct()
     categories = Category.objects.all()
-    context = {'collections':collections, 'categories':categories,'items': items, 'order': order, 'cart_items': cart_items, 'user_not_login':user_not_login, 'user_login':user_login}
+    context = {
+        'collections':collections,
+        'categories':categories,
+        'items': items,
+        'order': order,
+        'cart_items': cart_items,
+        'user_not_login':user_not_login,
+        'user_login':user_login
+    }
     return render(request, 'Cart/cart.html', context)
 
 
@@ -42,7 +50,14 @@ def checkout_view(request):
     collections = Product.objects.exclude(collection__isnull=True).exclude(collection="").values_list('collection',
                                                                                                       flat=True).distinct()
     categories = Category.objects.all()
-    context = {'collections':collections, 'categories':categories, 'items':items, 'order':order, 'cart_items':cart_items, 'user_not_login':user_not_login, 'user_login':user_login}
+    context = {
+        'collections':collections,
+        'categories':categories,
+        'items':items, 'order':order,
+        'cart_items':cart_items,
+        'user_not_login':user_not_login,
+        'user_login':user_login
+    }
     return render(request, 'Cart/checkout.html', context)
 
 def add_to_cart(request):

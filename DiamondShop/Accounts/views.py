@@ -10,7 +10,9 @@ def register_view(request):
         if form.is_valid():
             form.save()
             return redirect('login')
-    context = {'form': form}
+    context = {
+        'form': form
+    }
     return render(request, 'Accounts/register.html', context)
 
 
