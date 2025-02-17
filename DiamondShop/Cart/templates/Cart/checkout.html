@@ -1,7 +1,7 @@
 {% extends "DashBoard/dashBoard.html" %}
 {% load custom_filters %}
 {% load static %}
-{% block content_checkout %}
+{% block checkout %}
      <div class="row" style="width:100%">
 		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
@@ -37,13 +37,15 @@
 						</div>
 					</div>
 					<hr>
-					<input id="form-button" class="btn btn-success btn-block" type="submit" value="Tiếp tục">
-				</form>
-			</div>
 
-			<br>
-			<div class="box-element hidden" id="payment-info">
-				<small>Phương thức thanh toán</small>
+					<hr>
+					<input id="form-button" class="btn btn-success btn-block" type="submit" value="Xác nhận">
+
+<!--					<div id="thank-you-message">-->
+<!--						<p><strong>Cảm ơn Ho ten đã mua hàng ở Diamond Yasuo.</strong></p>-->
+<!--						<p><strong>Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất!</strong></p>-->
+<!--					</div>-->
+				</form>
 			</div>
 			
 		</div>
@@ -63,8 +65,8 @@
 				</div>
 				{% endfor %}
 				<h5>Tổng sản phẩm: {{order.get_cart_items}}</h5>
-				<h5>Tổng tiền: {{order.get_cart_total | currency_format}} VND</h5>
+				<h5>Tổng tiền: <strong>{{order.get_cart_total | currency_format}} VND</strong></h5>
 			</div>
 		</div>
 	</div>
-{% endblock content_checkout %}
+{% endblock checkout %}
