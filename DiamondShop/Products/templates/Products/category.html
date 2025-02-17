@@ -1,0 +1,25 @@
+{% extends "DashBoard/dashBoard.html" %}
+{% load static %}
+{% load custom_filters %}
+{% block category %}
+<img src="{% static 'images/cover/' %}{{ products.0.category.slug}}.jpg" class="d-block w-100"><br>
+<div class="row" style="width:100%">
+  {% for product in products %}
+  <div class="col-lg-3">
+    {% if product.image and product.image.url %}
+    <img class="responsive-img" src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% else %}
+    <img class="responsive-img" src="/static/images/icon/default-product.jpg" alt="Default Image" style ="width:600px height:600px">
+    {% endif %}
+    <div class="box-element product">
+      <h6><strong>{{product.name}}</strong></h6>
+      <hr>
+      <button data-product="{{product.id}}" data-action="add" class="btn-outline-secondary add-btn update-cart btn btn-outline-dark">Thêm vào giỏ hàng</button>
+      <a class="btn btn-outline-success" href="{% url 'detail' %}?id={{ product.id }}">Xem</a>
+      <h4 style="display: inline-block float: right"><strong>{{product.price | currency_format}} VND</strong></h4>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

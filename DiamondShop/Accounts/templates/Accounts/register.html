@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <h2>Đăng ký tài khoản</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+
+        <label for="first_name">Họ:</label>
+        <input type="text" id="first_name" name="first_name">
+        <br>
+
+        <label for="last_name">Tên:</label>
+        <input type="text" id="last_name" name="last_name">
+        <br>
+
+        <label for="password1">Mật khẩu:</label>
+        <input type="password" id="password1" name="password1" required>
+        <br>
+
+        <label for="password2">Nhập lại mật khẩu:</label>
+        <input type="password" id="password2" name="password2" required>
+        <br>
+
+        <button type="submit" name="Create-User">Đăng ký</button>
+        <p>Bạn đã có tài khoản? <a href="{% url 'login' %}">Đăng nhập</a></p>
+
+    </form>
+</body>
+</html>
