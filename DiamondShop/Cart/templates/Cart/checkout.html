@@ -5,51 +5,77 @@
      <div class="row" style="width:100%">
 		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
-				<form id="form">
+				<form id="form" method="POST" action="{% url 'shopping_address' %}">
+					{% csrf_token %}
 					<div id="user-info">
 						<div class="form-field">
-							<input required class="form-control" type="text" name="name" placeholder="Họ và tên">
+							{% if name_order %}
+								<p>Họ và tên: {{ name_order }}</p>
+							{% else %}
+								<input required class="form-control" type="text" name="name" placeholder="Họ và tên" value="{{ name_order }}">
+							{% endif %}
 						</div>
 						<div class="form-field">
-							<input required class="form-control" type="text" name="phonenumber" placeholder="Số điện thoại">
+							{% if phone_number %}
+								<p>Số điện thoại: {{ phone_number }}</p>
+							{% else %}
+								<input required class="form-control" type="text" name="phone_number" placeholder="Số điện thoại" value="{{ phone_number }}">
+							{% endif %}
 						</div>
 						<div class="form-field">
-    						<textarea class="form-control" name="note" placeholder="Lời nhắn cho Shop" rows="4" style="width: 205%;"></textarea>
+							{% if note %}
+								<p>Ghi chú: {{ note }}</p>
+							{% else %}
+								<textarea class="form-control" name="note" placeholder="Lời nhắn cho Shop" rows="4" style="width: 205%;">{{ note }}</textarea>
+							{% endif %}
 						</div>
 
 					</div>
-					
 					<div id="shipping-info">
 						<hr>
 						<p>Địa chỉ giao hàng:</p>
 						<hr>
 						<div class="form-field">
-							<input class="form-control" type="text" name="city" placeholder="Tỉnh/Thành phố">
+							{% if city %}
+								<p>Tỉnh/Thành phố: {{ city }}</p>
+							{% else %}
+								<input class="form-control" type="text" name="city" placeholder="Tỉnh/Thành phố" value="{{ city }}">
+							{% endif %}
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="district" placeholder="Quận/Huyện">
+							{% if district %}
+								<p>Quận/Huyện: {{ district }}</p>
+							{% else %}
+								<input class="form-control" type="text" name="district" placeholder="Quận/Huyện" value="{{ district }}">
+							{% endif %}
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="commune" placeholder="Phường/Xã">
+							{% if commune %}
+								<p>Phường/Xã: {{ commune }}</p>
+							{% else %}
+								<input class="form-control" type="text" name="commune" placeholder="Phường/Xã" value="{{ commune }}">
+							{% endif %}
 						</div>
 						<div class="form-field">
-							<input class="form-control" type="text" name="address" placeholder="Tên đường, Toà nhà, Số nhà">
+							{% if address_detail %}
+								<p>Tên đường, Toà nhà, Số nhà: {{ address_detail }}</p>
+							{% else %}
+								<input class="form-control" type="text" name="address" placeholder="Tên đường, Toà nhà, Số nhà" value="{{ address }}">
+							{% endif %}
 						</div>
 					</div>
-					<hr>
 
 					<hr>
-					<input id="form-button" class="btn btn-success btn-block" type="submit" value="Xác nhận">
-
-<!--					<div id="thank-you-message">-->
-<!--						<p><strong>Cảm ơn Ho ten đã mua hàng ở Diamond Yasuo.</strong></p>-->
-<!--						<p><strong>Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất!</strong></p>-->
-<!--					</div>-->
+					<div style="visibility:{{confirm}}">
+						<input id="form-button" class="btn btn-success btn-block" type="submit" value="Xác nhận">
+					</div>
+					<div id="thank-you-message" style="visibility:{{thank_you}}">
+						<p><strong>Cảm ơn {{name_order}} đã mua hàng ở Diamond Yasuo.</strong></p>
+						<p><strong>Đơn hàng sẽ được giao đến bạn trong thời gian sớm nhất!</strong></p>
+					</div>
 				</form>
 			</div>
-			
 		</div>
-
 		<div class="col-lg-6">
 			<div class="box-element">
 				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Trở về giỏ hàng</a>

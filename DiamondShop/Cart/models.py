@@ -39,6 +39,7 @@ class OrderItem(models.Model):
 
 class ShoppingAddress(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    name_order = models.CharField(max_length=255, null=False, blank=False)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     address = models.CharField(max_length=255, null=True)
     phone_number = models.CharField(max_length=12, null=True)
