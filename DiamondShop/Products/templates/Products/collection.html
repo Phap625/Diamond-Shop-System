@@ -2,7 +2,22 @@
 {% load static %}
 {% load custom_filters %}
 {% block collection %}
-<img src="{% static 'images/cover/' %}{{ products.0.collection|slugify }}.jpg" class="d-block w-100"><br>
+<img src="{% static 'images/cover/' %}{{ products.0.collection|slugify }}.jpg" class="d-block w-100">
+<br>
+<div class="d-flex justify-content-start mb-3">
+  <form method="GET">
+    <h5><label for="sort">Sắp xếp:</label></h5>
+    {% if active_collection %}
+      <input type="hidden" name="collection" value="{{ active_collection }}">
+    {% endif %}
+    <select name="sort" id="sort" class="form-select" onchange="this.form.submit()">
+      <option value="default" {% if sort_order == 'default' %}selected{% endif %}>Mặc định</option>
+      <option value="low_to_high" {% if sort_order == 'low_to_high' %}selected{% endif %}>Giá từ thấp đến cao</option>
+      <option value="high_to_low" {% if sort_order == 'high_to_low' %}selected{% endif %}>Giá từ cao đến thấp</option>
+      <option value="best_seller" {% if sort_order == "best_seller" %}selected{% endif %}>Bán chạy nhất</option>
+    </select>
+  </form>
+</div>
 <div class="row" style="width:100%">
   {% for product in products %}
   <div class="col-lg-3">
@@ -16,7 +31,10 @@
       <hr>
       <button data-product="{{product.id}}" data-action="add" class="btn-outline-secondary add-btn update-cart btn btn-outline-dark">Thêm vào giỏ hàng</button>
       <a class="btn btn-outline-success" href="{% url 'detail' %}?id={{ product.id }}">Xem</a>
-      <h4 style="display: inline-block float: right"><strong>{{product.price | currency_format}} VND</strong></h4>
+     <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h4><strong>{{ product.price | currency_format }} VND</strong></h4>
+        <a>{{ product.sold }} đã bán</a>
+      </div>
     </div>
   </div>
   {% endfor %}

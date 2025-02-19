@@ -29,6 +29,7 @@ class Product(models.Model):
     sub_image2 = models.ImageField(upload_to=get_upload_path, null=True, blank=True, default='icon/default-product.jpg', max_length=255)
     sub_image3 = models.ImageField(upload_to=get_upload_path, null=True, blank=True, default='icon/default-product.jpg', max_length=255)
     weight = models.FloatField(help_text="Trọng lượng kim cương(carat)")
+    sold = models.PositiveIntegerField(default=0, help_text="Số lượng sản phẩm đã bán")
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

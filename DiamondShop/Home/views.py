@@ -16,24 +16,41 @@ def home_view(request):
         user_not_login = "show"
 
     collections = Product.objects.exclude(collection__isnull=True).exclude(collection="").values_list('collection',
-                                                                                                      flat=True).distinct()
+                                                                                                              flat=True).distinct()
     categories = Category.objects.all()
-    products = Product.objects.all()
+
+    sort_order = request.GET.get('sort', 'default')
+    if sort_order == 'low_to_high':
+        products = Product.objects.all().order_by('price')
+    elif sort_order == 'high_to_low':
+        products = Product.objects.all().order_by('-price')
+    elif sort_order == "best_seller":
+        products = Product.objects.all().order_by("-sold")
+    else:
+        products = Product.objects.all()
+
     context = {
         'collections':collections,
         'categories':categories,
         'products':products,
         'cart_items':cart_items,
         'user_not_login':user_not_login,
-        'user_login':user_login
+        'user_login':user_login,
+        'sort_order': sort_order
     }
     return render(request, "Home/home.html", context)
 
 
 def search_view(request):
-    if request.method=="POST":
-        searched = request.POST["searched"]
-        keys = Product.objects.filter(name__icontains = searched)
+    keys = Product.objects.none()
+    searched = request.GET.get("searched", "").strip()
+    if searched:
+        keys = Product.objects.filter(name__icontains=searched)
+
+    if request.method == "POST":
+        searched = request.POST.get("searched", "").strip()
+        if searched:
+            keys = Product.objects.filter(name__icontains=searched)
     if request.user.is_authenticated:
         customer = request.user
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
@@ -47,13 +64,21 @@ def search_view(request):
     collections = Product.objects.exclude(collection__isnull=True).exclude(collection="").values_list('collection',
                                                                                                       flat=True).distinct()
     categories = Category.objects.all()
-    products = Product.objects.all()
+
+    sort_order = request.GET.get('sort', 'default')
+
+    if sort_order == 'low_to_high':
+        keys = keys.order_by('price')
+    elif sort_order == 'high_to_low':
+        keys = keys.order_by('-price')
+    elif sort_order == "best_seller":
+        keys = keys.order_by("-sold")
     context = {
+        'sort_order': sort_order,
         'collections': collections,
         'categories':categories,
         'searched':searched,
         'keys':keys,
-        'products':products,
         'cart_items':cart_items,
         'user_not_login':user_not_login,
         'user_login':user_login,

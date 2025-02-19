@@ -16,10 +16,7 @@ def cart_view(request):
         user_login = "show"
         for completed_order in completed_orders:
             purchased_items.extend(completed_order.orderitem_set.all())
-            shopping_address = ShoppingAddress.objects.filter(order=completed_order).first()
-            if shopping_address:
-                for item in purchased_items:
-                    item.created_at = shopping_address.created_at
+
     else:
         items = []
         order = {'get_cart_items': 0, 'get_cart_total': 0}
@@ -118,7 +115,12 @@ def shopping_address(request):
                 note = "Không có ghi chú"
 
             if order:
-                ShoppingAddress.objects.create(
+                for item in order.orderitem_set.all():
+                    product = item.product
+                    product.sold += item.quantity
+                    product.save()
+
+                shopping_address = ShoppingAddress.objects.create(
                     customer=request.user,
                     name_order=name_order,
                     order=order,
@@ -126,6 +128,10 @@ def shopping_address(request):
                     phone_number=phone_number,
                     note=note
                 )
+                for item in order.orderitem_set.all():
+                    item.created_at = shopping_address.created_at
+                    item.save()
+
                 order.complete = True
                 order.save()
                 cart_items = 0

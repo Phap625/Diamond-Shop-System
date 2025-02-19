@@ -2,7 +2,6 @@ from django.shortcuts import render
 from Cart.models import Order
 from .models import Category, Product
 
-
 def category_view(request):
     if request.user.is_authenticated:
         customer = request.user
@@ -23,8 +22,20 @@ def category_view(request):
     if active_category:
         products = Product.objects.filter(category__slug = active_category)
     else:
-        products = []
+        products = Product.objects.none()
+
+    sort_order = request.GET.get('sort', 'default')
+
+    if products.exists():
+        if sort_order == 'low_to_high':
+            products = products.order_by('price')
+        elif sort_order == 'high_to_low':
+            products = products.order_by('-price')
+        elif sort_order == 'best_seller':
+            products = products.order_by('-sold')
+
     context = {
+        'sort_order': sort_order,
         'collections':collections,
         'cart_items':cart_items,
         'categories':categories,
@@ -80,9 +91,16 @@ def collection_view(request):
     active_collection = request.GET.get('collection', '')
 
     products = Product.objects.filter(collection=active_collection) if active_collection else []
-
+    sort_order = request.GET.get('sort', 'default')
+    if sort_order == 'low_to_high':
+        products = products.order_by('price')
+    elif sort_order == 'high_to_low':
+        products = products.order_by('-price')
+    elif sort_order == "best_seller":
+        products = products.order_by("-sold")
     categories = Category.objects.all()
     context = {
+        'sort_order':sort_order,
         'collections': collections,
         'active_collection': active_collection,
         'cart_items': cart_items,

@@ -30,11 +30,15 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True, blank=True)
     order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True, blank=True)
     quantity = models.IntegerField(default=0, null=True, blank=True)
+    created_at = models.DateTimeField(null=True, blank=True)
 
     @property
     def get_total(self):
         total = self.product.price * self.quantity
         return total
+
+    def __str__(self):
+        return f"{self.product.name} Số lượng: {self.quantity}"
 
 
 class ShoppingAddress(models.Model):
