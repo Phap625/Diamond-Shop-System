@@ -14,70 +14,78 @@
   </head>
 
   <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-        <a class="navbar-brand">
-            <span class="app-brand-logo demo">
-                <a href="{% url 'home' %}"><img src="{%static 'images/icon/logo.png'%}" width="25"></a>
-             </span>
-            Diamond Yasuo
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Trang Chủ</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Danh Mục
-              </a>
-              <ul class="dropdown-menu">
-                {% for category in categories %}
-                  <li><a class="dropdown-item" href="{% url 'category' %}?category={{category.slug}}">{{category.name}}</a></li>
-                {% endfor %}
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Bộ Sưu Tập
-                </a>
-                <ul class="dropdown-menu">
-                {% for collection in collections %}
-                  <li><a class="dropdown-item" href="{% url 'collection' %}?collection={{collection}}">{{collection}}</a></li>
-                {% endfor %}
-                </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'contact' %}">Liên Hệ</a>
-            </li>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static 'images/icon/logo.png' %}" width="25"> Diamond Yasuo
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home' %}">Trang Chủ</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Danh Mục</a>
+          <ul class="dropdown-menu">
+            {% for category in categories %}
+              <li><a class="dropdown-item" href="{% url 'category' %}?category={{category.slug}}">{{category.name}}</a></li>
+            {% endfor %}
           </ul>
-          <form class="d-flex" role="search" method="POST" action="{% url 'search' %}">
-              {% csrf_token %}
-            <input class="form-control me-2" type="search" placeholder="Tìm Kiếm" aria-label="Search" name="searched">
-            <button class="btn btn-outline-success" type="submit">Tìm Kiếm</button>
-          </form>
-        </div>
-        <div>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <div class="form-inline my-2 my-lg-0" style="visibility:{{user_login}}">
-                    <span>Xin chào {{user.username}}</span>
-                    <span><a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a></span>
-                </div>
-                <div class="form-inline my-2 my-lg-0" style="visibility:{{user_not_login}}">
-                    <a class="nav-link" href="{% url 'login' %}" style="display:inline">Đăng Nhập</a>
-                    <a class="nav-link" href="{% url 'register' %}" style="display:inline">Đăng Ký</a>
-                </div>
-            </ul>
-        </div>
-        <div class="form-inline my-2 my-lg-0">
-            <a href="{% url 'cart' %}"><img id="cart-icon" src="{%static 'images/icon/cart.png'%}"></a>
-            <p id="cart-total" style="display:inline">{{cart_items}}</p>
-        </div>
-        </div>
-        </nav>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Bộ Sưu Tập</a>
+          <ul class="dropdown-menu">
+            {% for collection in collections %}
+              <li><a class="dropdown-item" href="{% url 'collection' %}?collection={{collection}}">{{collection}}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">Liên Hệ</a>
+        </li>
+      </ul>
+
+<form class="d-flex me-3" role="search" method="POST" action="{% url 'search' %}">
+  {% csrf_token %}
+  <div class="input-group">
+    <input type="search" class="form-control" placeholder="Tìm Kiếm" name="searched">
+    <button class="btn btn-success" type="submit">Tìm Kiếm</button>
+  </div>
+</form>
+
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="nav-link">Xin chào, <strong>{{ user.username }}</strong></span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Đăng xuất</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Đăng Nhập</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Đăng Ký</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <!-- 🛒 Cart -->
+      <div class="ms-3">
+        <a href="{% url 'cart' %}" class="d-flex align-items-center">
+          <img id="cart-icon" src="{% static 'images/icon/cart.png' %}" width="30">
+          <p id="cart-total" class="ms-1 mb-0">{{ cart_items }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
 
     {% block banner %}
     {% endblock %}
